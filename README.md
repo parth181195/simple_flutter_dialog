@@ -44,9 +44,8 @@ SimpleFlutterDialog(
 
 All attributes:
 
-|                      |                    |                                                    | 
-|----------------------|--------------------|----------------------------------------------------| 
 | Attribute Name       | Data Type          | Description                                        | 
+|----------------------|--------------------|----------------------------------------------------| 
 | headerImage          | ImageProvider      | Image provider for header image                    | 
 | dialogTitle          | Text               | text widget for dialog title                       | 
 | actions              | List<Widget>       | list of widget for bottom actions                  | 
@@ -61,4 +60,6 @@ All attributes:
 | isScrollable         | bool               | do you eant to keep ypur content scrollable or not | 
 | contentListAlignment | CrossAxisAlignment | cross axis alignment for content                   | 
 | actionsRowAlignment  | MainAxisAlignment  | main axis alignment for actions                    | 
-| headerImageFit       | BoxFit             | header image fit                                   | 
+| headerImageFit       | BoxFit             | header image fit                                   |
+
+
