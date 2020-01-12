@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SimpleFlutterDialog {
   final ImageProvider headerImage;
@@ -22,7 +23,7 @@ class SimpleFlutterDialog {
   SimpleFlutterDialog(
       {Key key,
       this.headerImage,
-      this.isScrollable = true,
+      this.isScrollable = false,
       this.headerImageFit = BoxFit.cover,
       this.headerImageHeight = 100,
       this.actions,
@@ -95,7 +96,7 @@ class SimpleFlutterDialog {
     return !isScrollable
         ? Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: contentListAlignment,
             children: getChildContents(),
           )
@@ -105,35 +106,32 @@ class SimpleFlutterDialog {
   }
 
   List<Widget> getChildContents() {
-    return [
-      imageWidget != null ? imageWidget : Container(),
-      dialogTitle != null
-          ? Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
-              child: Text(
-                dialogTitle.data,
-                style: dialogTitle.style != null
-                    ? dialogTitle.style
-                    : TextStyle(fontSize: 25),
-              ),
-            )
-          : Container(),
-      child != null
-          ? Padding(
-              padding: EdgeInsets.all(childPadding),
-              child: child,
-            )
-          : Container(),
-      actions != null
-          ? Padding(
-              padding: EdgeInsets.only(right: radius, left: radius),
-              child: Row(
-                mainAxisAlignment: actionsRowAlignment,
-                children: actions,
-              ),
-            )
-          : Container()
-    ];
+    List<Widget> widgerArray = [];
+    if (imageWidget != null) widgerArray.add(imageWidget);
+    if (dialogTitle != null) {
+      widgerArray.add(Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
+        child: Text(
+          dialogTitle.data,
+          style: dialogTitle.style != null
+              ? dialogTitle.style
+              : TextStyle(fontSize: 25),
+        ),
+      ));
+    }
+    if (child != null) {
+      widgerArray.add(child);
+    }
+    if (actions != null) {
+      widgerArray.add(Padding(
+        padding: EdgeInsets.only(right: radius, left: radius),
+        child: Row(
+          mainAxisAlignment: actionsRowAlignment,
+          children: actions,
+        ),
+      ));
+    }
+
+    return widgerArray;
   }
 }

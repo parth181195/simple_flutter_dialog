@@ -36,25 +36,29 @@ class _MyAppState extends State<MyApp> {
 
   openDialog() {
     return SimpleFlutterDialog(
-            isScrollable: true,
-            child: Text(
-                'loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem'),
-            actions: [
-              FlatButton(
-                onPressed: () {
-                  openDialog();
-                },
-                child: Text('open'),
-              ),
-              FlatButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text('exit'),
-              )
-            ],
-            dialogTitle: Text('My Simple Title'),
-            headerImage: NetworkImage('https://via.placeholder.com/150'))
-        .show(context);
+      height: 200,
+      width: MediaQuery.of(context).size.width - 20,
+      child: Container(
+        height: 200,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              'data',
+              style: TextStyle(fontSize: 25),
+            ),
+            Text(
+              'data',
+              style: TextStyle(fontSize: 25),
+            ),
+            Text(
+              'data',
+              style: TextStyle(fontSize: 25),
+            ),
+          ],
+        ),
+      ),
+    ).show(context);
   }
 }

@@ -1,6 +1,6 @@
 name: simple_flutter_dialog
 description: simple plugin to create dialog in flutter
-version: 0.0.1
+version: 0.0.3
 homepage: https://github.com/parth181195/simple_flutter_dialog
 
 environment:
