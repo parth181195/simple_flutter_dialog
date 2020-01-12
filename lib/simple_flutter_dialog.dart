@@ -10,6 +10,7 @@ class SimpleFlutterDialog {
   final double width;
   final Color bgOverlayColor;
   final double radius;
+  final Function onClose;
   final double childPadding;
   final double headerImageHeight;
   final Color dialogColor;
@@ -23,6 +24,7 @@ class SimpleFlutterDialog {
   SimpleFlutterDialog(
       {Key key,
       this.headerImage,
+      this.onClose,
       this.isScrollable = false,
       this.headerImageFit = BoxFit.cover,
       this.headerImageHeight = 100,
@@ -64,7 +66,12 @@ class SimpleFlutterDialog {
                 SizedBox.expand(
                   child: Container(
                     child: GestureDetector(
-                      onTap: () => Navigator.pop(context),
+                      onTap: () {
+                        if (onClose != null) {
+                          onClose();
+                        }
+                        Navigator.pop(context);
+                      },
                     ),
                     decoration: BoxDecoration(color: bgOverlayColor),
                   ),

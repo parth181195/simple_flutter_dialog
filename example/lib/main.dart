@@ -37,6 +37,9 @@ class _MyAppState extends State<MyApp> {
   openDialog() {
     return SimpleFlutterDialog(
       height: 200,
+      onClose: (){
+        print('closed');
+      },
       width: MediaQuery.of(context).size.width - 20,
       child: Container(
         height: 200,
